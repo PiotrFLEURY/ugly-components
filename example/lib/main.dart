@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uglycomponents/troggle.dart';
+import 'package:uglycomponents/radio/exclusive_radio.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,28 +38,49 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         title: const Text('Test Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Troggle(
-              width: 100,
-              height: 100,
-              quarterTurns: quarterTurns,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  if (quarterTurns == 3) {
-                    quarterTurns = 0;
-                  } else {
-                    quarterTurns++;
-                  }
-                });
-              },
-              child: const Text('Turn'),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Troggle(
+                width: 100,
+                height: 100,
+                quarterTurns: quarterTurns,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (quarterTurns == 3) {
+                      quarterTurns = 0;
+                    } else {
+                      quarterTurns++;
+                    }
+                  });
+                },
+                child: const Text('Turn'),
+              ),
+              ExclusiveRadioGroup(
+                alignment: ExclusiveRadioGroupAlignment.vertical,
+                children: [
+                  ExclusiveRadio(
+                    index: 0,
+                    text: 'AAAAAAAAAAAAAAAA',
+                  ),
+                  ExclusiveRadio(
+                    index: 1,
+                    text: 'BBBBBBBBBBBBBBBB',
+                  ),
+                  ExclusiveRadio(
+                    index: 2,
+                    text: 'CCCCCCCCCCCCCCC',
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

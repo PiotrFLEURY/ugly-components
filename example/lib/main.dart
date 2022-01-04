@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uglycomponents/troggle.dart';
-import 'package:uglycomponents/radio/exclusive_radio.dart';
+import 'package:uglycomponents/uglycomponents.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ugly components',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const TestPage(),
     );
@@ -45,6 +44,18 @@ class _TestPageState extends State<TestPage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Multiggle(
+                  count: 2,
+                  backgroundColor: Colors.green.withAlpha(200),
+                  borderColor: Colors.green,
+                  indicatorColor: Colors.teal,
+                  onPositionChanged: (position) {
+                    debugPrint('Multiggle position changed to $position');
+                  },
+                ),
+              ),
               Troggle(
                 width: 100,
                 height: 100,

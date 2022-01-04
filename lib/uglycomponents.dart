@@ -1,7 +1,5 @@
 library uglycomponents;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:uglycomponents/troggle.dart';
+export 'package:uglycomponents/radio/exclusive_radio.dart';
+export 'package:uglycomponents/multiggle.dart';
